@@ -27,3 +27,5 @@ Sometimes, his implementation failed, and I didn't bnother to fix it, so I don't
 |Day 2b|/|404.9us|
 |Day 3a|/|220.6us|
 |Day 3b|/|210.5us|
+|Day 4a|/|377.8us|
+|Day 4b|/|373.6us|

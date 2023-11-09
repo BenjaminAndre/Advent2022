@@ -1,5 +1,3 @@
-#![feature(iter_array_chunks)]
-
 use std::time::{Instant};
 
 fn main(){
@@ -8,7 +6,7 @@ fn main(){
     let result = v1(data);
     println!("Time spent on V1 ({}): {:?}", result, t0.elapsed());
     // vext();
-    v2(data);
+    //v2(data);
 }
 
 fn v1(data :&str) -> u32 {
@@ -41,7 +39,3 @@ fn vext() {
     );
 }
 
-fn v2(data :&str) {
-    let rows = data.trim().as_bytes().array_chunks::<4>().map(|[p1, _, p2, _]| p1 + p2);
-    println!("{:?}", rows);
-}
