@@ -29,3 +29,9 @@ Sometimes, his implementation failed, and I didn't bnother to fix it, so I don't
 |Day 3b|/|210.5us|
 |Day 4a|/|377.8us|
 |Day 4b|/|373.6us|
+|Day 5a|/|209.0us|
+|Day 5b|/|349.0us|
+
+## Further works
+
+I'm disgusted by day 5. It shows a lack of understanding, and gives me a way to continue my Rust journey.
