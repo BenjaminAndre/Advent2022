@@ -6,6 +6,10 @@ fn main() {
     let rvt = vt(&data);
     let dvt = t0.elapsed();
     println!("vt found {} in {:?}", rvt, dvt);
+    let t0 = Instant::now();
+    let rvt = vext(&data);
+    let dvt = t0.elapsed();
+    println!("vt ext found {} in {:?}", rvt, dvt);
 }
 
 fn vt(data : &[u8; 4096]) -> u32 {
@@ -20,5 +24,13 @@ fn vt(data : &[u8; 4096]) -> u32 {
 
     }
     return 0;
+}
+
+fn vext(data : &[u8;4096]) -> usize{
+       data 
+            .windows(4)
+            .position(|b| !(0..3).any(|i| (i + 1..4).any(|j| b[i] == b[j])))
+            .unwrap()
+            + 4
 }
 

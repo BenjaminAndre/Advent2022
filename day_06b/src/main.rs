@@ -6,6 +6,9 @@ fn main() {
     let rvt = vt(&data);
     let dvt = t0.elapsed();
     println!("vt found {} in {:?}", rvt, dvt);
+    let rvt = vext(&data);
+    let dvt = t0.elapsed();
+    println!("vext found {} in {:?}", rvt, dvt);
 }
 
 fn vt(data : &[u8; 4096]) -> u32 {
@@ -29,3 +32,20 @@ fn vt(data : &[u8; 4096]) -> u32 {
     return 0;
 }
 
+fn vext(data : &[u8;4096]) -> u32 {
+    let mut i = 0;
+    while let Some(win) = data.get(i..i + 14) {
+        let mut seen = 0u32;
+        if let Some(pos) = win.iter().rposition(|b| {
+            let bit = 1 << (b % 32);
+            let duplicate = seen & bit != 0;
+            seen |= bit;
+            duplicate
+        }) {
+            i += pos + 1;
+        } else {
+            break;
+        }
+    }
+    i.try_into().unwrap()
+}

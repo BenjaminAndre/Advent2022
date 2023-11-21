@@ -31,7 +31,10 @@ Sometimes, his implementation failed, and I didn't bnother to fix it, so I don't
 |Day 4b|/|373.6us|
 |Day 5a|/|209.0us|
 |Day 5b|/|349.0us|
+|Day 6a|138.6us|18.0us|
+|Day 6b|120.5us|71.5us|
 
 ## Further works
 
 I'm disgusted by day 5. It shows a lack of understanding, and gives me a way to continue my Rust journey.
+I'm relieved by day 6. It was fun optimizing those bit manipulations, but it probably can be pushed even more. On 6b, Timvisee scripts gives me the wrong answer (14 too low), which is relevant enough to be useful. Might be an error on my end.
