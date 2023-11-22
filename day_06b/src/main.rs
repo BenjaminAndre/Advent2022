@@ -5,13 +5,13 @@ fn main() {
     let t0 = Instant::now();
     let rvt = vt(&data);
     let dvt = t0.elapsed();
-    println!("vt found {} in {:?}", rvt, dvt);
+    println!("vt found {:?} in {:?}", rvt, dvt);
     let rvt = vext(&data);
     let dvt = t0.elapsed();
     println!("vext found {} in {:?}", rvt, dvt);
 }
 
-fn vt(data : &[u8; 4096]) -> u32 {
+fn vt(data : &[u8; 4096]) -> Option<u32> {
     const MEMORY: usize = 13;
     let mut history : [u32;MEMORY] = [0u32;MEMORY];
     let mut j = 0;
@@ -24,12 +24,12 @@ fn vt(data : &[u8; 4096]) -> u32 {
             history[i%MEMORY] = entry;
         } else {
         if j + MEMORY == i {
-            return (j+MEMORY+1).try_into().unwrap();
+            return (j+MEMORY+1).try_into().ok();
         }
         history[i%MEMORY] = (last_entry & (!history[i%MEMORY])) | entry;
         }
     }
-    return 0;
+    return None;
 }
 
 fn vext(data : &[u8;4096]) -> u32 {
